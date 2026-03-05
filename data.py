@@ -1,8 +1,9 @@
 import yfinance as yf
 import pandas as pd
 from fredapi import Fred
+import streamlit as st
 
-FRED_API_KEY = "0f7bbc95f02682921da9ef3fd39adea9"
+FRED_API_KEY = st.secrets["FRED_API_KEY"]
 
 def fetch(ticker, period="5y"):
     data = yf.Ticker(ticker).history(period=period)
